@@ -37,8 +37,6 @@
 (setq scroll-margin 3)
 
 
-
-
 (defun loader-after-plugins ()
   (setq global-linum-mode t
         column-number-mode t
@@ -190,7 +188,24 @@
   ; =======================
   ; NotMuch config        =
   ;========================
+  (defun nin/notmuch-handle-attachments ()
+    "Overrides the default action triggered when clicking on a notmuch attachment."
+    (interactive)
+    (let* ((handle (notmuch-show-current-part-handle)))
+      ;(message "%s" handle)
+      ; Handle looks like:
+      ;( *notmuch-part* (application/ics) nil nil (attachment (filename . invite.ics)) nil nil nil)
+      (unwind-protect
+          (pcase (car (nth 1 handle))
+            ("application/ics"
+             (let ((tmpIcal (make-temp-file "notmuch-ical")))
+               (mm-save-part-to-file handle tmpIcal)
+               (call-process "gnome-calendar" nil nil nil tmpIcal)
+               (delete-file tmpIcal)))
+            (_ (notmuch-show-save-part))))))
+
   (setq notmuch-search-oldest-first nil
+      notmuch-show-part-button-default-action #'nin/notmuch-handle-attachments
       message-sendmail-envelope-from 'header
       mail-specify-envelope-from 'header
       mail-envelope-from 'header
