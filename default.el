@@ -74,6 +74,8 @@
   (use-package company-box)
   (use-package tree-sitter)
   (use-package tree-sitter-langs)
+  (use-package geiser)
+  (use-package geiser-guile)
   ; ===================
   ; Evil-related stuff=
   ; ===================
