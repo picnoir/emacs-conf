@@ -68,6 +68,7 @@
   (use-package lsp-mode)
   (use-package lsp-ui)
   (use-package my-repo-pins)
+  (use-package dockerfile-mode)
   (use-package langtool)
   (use-package yaml-mode)
   (use-package rust-mode)
