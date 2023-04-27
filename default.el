@@ -55,6 +55,7 @@
   (use-package flycheck-haskell)
   (use-package git-link)
   (use-package haskell-mode)
+  (use-package jenkinsfile-mode)
   (use-package magit)
   (use-package nix-mode)
   (use-package go-mode)
