@@ -204,7 +204,7 @@
             ("application/ics"
              (let ((tmpIcal (make-temp-file "notmuch-ical")))
                (mm-save-part-to-file handle tmpIcal)
-               (call-process "gnome-calendar" nil nil nil tmpIcal)
+               (call-process "kalendar" nil nil nil tmpIcal)
                (delete-file tmpIcal)))
             (_ (notmuch-show-save-part))))))
 
