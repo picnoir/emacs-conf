@@ -78,6 +78,7 @@
   (use-package tree-sitter-langs)
   (use-package geiser)
   (use-package geiser-guile)
+  (use-package terraform-mode)
   ; ===================
   ; Evil-related stuff=
   ; ===================
