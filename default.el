@@ -79,6 +79,13 @@
   (use-package geiser)
   (use-package geiser-guile)
   (use-package terraform-mode)
+  (use-package olivetti)
+  ; ===================
+  ; Olivetti setup
+  ; ===================
+  (setq olivetti-body-width 0.7
+        olivetti-minimum-body-width 80
+        olivetti-recall-visual-line-mode-entry-state t)
   ; ===================
   ; Evil-related stuff=
   ; ===================
