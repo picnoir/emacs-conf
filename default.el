@@ -57,7 +57,9 @@
   (use-package haskell-mode)
   (use-package jenkinsfile-mode)
   (use-package magit)
-  (use-package nix-mode)
+  (use-package nix-mode
+    :hook (nix-mode . lsp-deferred)
+    :ensure t)
   (use-package go-mode)
   (use-package projectile)
   (use-package racket-mode)
@@ -80,6 +82,13 @@
   (use-package geiser-guile)
   (use-package terraform-mode)
   (use-package olivetti)
+  (use-package lsp-nix
+    :ensure lsp-mode
+    :after (lsp-mode)
+    :demand t
+    :custom
+    (lsp-nix-nil-formatter ["nixpkgs-fmt"])
+  )
   ; ===================
   ; Olivetti setup
   ; ===================
@@ -133,6 +142,8 @@
   (add-hook
    'rust-mode-hook
    #'lsp-mode)
+
+  (use-package lsp-nix)
 
   ; =========================
   ; Helm-related stuff      =
