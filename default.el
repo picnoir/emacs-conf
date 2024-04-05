@@ -143,7 +143,9 @@
    'rust-mode-hook
    #'lsp-mode)
 
-  (use-package lsp-nix)
+  ;; Prevent lsp-mode from downloading a custom clangd for c/c++
+  ;; codebases
+  (setq lsp-clients-clangd-executable "clangd")
 
   ; =========================
   ; Helm-related stuff      =
