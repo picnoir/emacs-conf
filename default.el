@@ -82,6 +82,7 @@
   (use-package geiser-guile)
   (use-package terraform-mode)
   (use-package olivetti)
+  (use-package lsp-haskell)
   (use-package lsp-nix
     :ensure lsp-mode
     :after (lsp-mode)
