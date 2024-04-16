@@ -83,6 +83,7 @@
   (use-package terraform-mode)
   (use-package olivetti)
   (use-package lsp-haskell)
+  (use-package yasnippet)
   (use-package lsp-nix
     :ensure lsp-mode
     :after (lsp-mode)
@@ -96,6 +97,8 @@
   (setq olivetti-body-width 0.7
         olivetti-minimum-body-width 80
         olivetti-recall-visual-line-mode-entry-state t)
+
+  (yas-global-mode 1)
   ; ===================
   ; Evil-related stuff=
   ; ===================
