@@ -2,6 +2,11 @@
 ;;; Commentary:
 ;;; My Emacs conf
 ;;; Code:
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
+;; and `package-pinned-packages`. Most users will not need or want to do this.
+;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 (eval-when-compile
   (require 'use-package))
@@ -76,8 +81,8 @@
   (use-package rust-mode)
   (use-package company)
   (use-package company-box)
-  (use-package tree-sitter)
-  (use-package tree-sitter-langs)
+;  (use-package tree-sitter)
+;  (use-package tree-sitter-langs)
   (use-package geiser)
   (use-package geiser-guile)
   (use-package terraform-mode)
@@ -139,9 +144,9 @@
    #'(lambda ()
        (local-set-key (kbd "C-c C-c") 'ninjatrappeur--compile-cargo-build)))
 
-  (add-hook
-   'rust-mode-hook
-   #'tree-sitter-mode)
+;  (add-hook
+;   'rust-mode-hook
+;   #'tree-sitter-mode)
 
   (add-hook
    'rust-mode-hook
@@ -309,3 +314,29 @@ useful when interactively debugging/developping a emacs package."
 
 (add-hook 'after-init-hook #'loader-after-plugins)
 ;;; default.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(lsp-rust-all-features t)
+ '(package-selected-packages
+   '(yasnippet lsp-haskell olivetti terraform-mode geiser-guile geiser company-box company rust-mode yaml-mode langtool dockerfile-mode my-repo-pins lsp-ui which-key org-modern notmuch racket-mode projectile go-mode magit jenkinsfile-mode haskell-mode git-link flycheck-haskell flycheck cmake-mode evil-collection evil rg helm-ls-git helm envrc protobuf-mode lsp-mode nix-mode monokai-theme))
+ '(safe-local-variable-values
+   '((eval c-set-offset 'inlambda 0)
+     (eval c-set-offset 'access-label '-)
+     (eval c-set-offset 'substatement-open 0)
+     (eval c-set-offset 'arglist-cont-nonempty '+)
+     (eval c-set-offset 'arglist-cont 0)
+     (eval c-set-offset 'arglist-intro '+)
+     (eval c-set-offset 'inline-open 0)
+     (eval c-set-offset 'defun-open 0)
+     (eval c-set-offset 'innamespace 0)
+     (indicate-empty-lines . t)
+     (c-block-comment-prefix . "  "))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
