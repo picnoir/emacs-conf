@@ -97,8 +97,7 @@
     :after (lsp-mode)
     :demand t
     :custom
-    (lsp-nix-nil-formatter ["nixfmt"])
-  )
+    (lsp-nix-nil-formatter ["nixfmt"]))
   ; ===================
   ; Olivetti setup
   ; ===================
@@ -146,6 +145,15 @@
    'rust-mode-hook
    #'(lambda ()
        (local-set-key (kbd "C-c C-c") 'ninjatrappeur--compile-cargo-build)))
+
+  (add-hook
+   'nix-mode-hook
+   #'(lambda ()
+       (add-hook
+        'after-save-hook
+        #'(lambda ()
+            (lsp-format-buffer)
+            (save-buffer)))))
 
 ;  (add-hook
 ;   'rust-mode-hook
