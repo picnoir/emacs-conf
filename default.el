@@ -9,7 +9,10 @@
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 (eval-when-compile
-  (require 'use-package))
+  (require 'use-package)
+  (require 'use-package-ensure)
+  (setq use-package-always-ensure t)
+)
 
 (load-theme 'monokai t)
 (tool-bar-mode -1)
@@ -94,7 +97,7 @@
     :after (lsp-mode)
     :demand t
     :custom
-    (lsp-nix-nil-formatter ["nixpkgs-fmt"])
+    (lsp-nix-nil-formatter ["nixfmt"])
   )
   ; ===================
   ; Olivetti setup
